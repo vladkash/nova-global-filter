@@ -101,13 +101,9 @@ export default {
   methods: {
     handleChange(filter, event) {
       let value = event;
-      console.log(`start value`);
-      console.log(value);
 
       if (typeof event === "object") {
         value = event.target.value;
-        console.log(`object value`);
-        console.log(value);
       }
 
       if (filter.component === "boolean-filter") {
@@ -117,17 +113,10 @@ export default {
           delete this.selectedCheckboxs[event.target.name];
         }
         value = this.selectedCheckboxs;
-        console.log(`checkbox value`);
-        console.log(value);
       }
 
-      console.log(`current filter value`);
-      console.log(filter.currentValue);
-
-      if(filter.currentValue !== value) {
-        filter.currentValue = value;
-        Nova.$emit("global-filter-changed", filter);
-      }
+      filter.currentValue = value;
+      Nova.$emit("global-filter-changed", filter);
     },
     resetFilters() {
       this.$router.go(this.$router.currentRoute);
