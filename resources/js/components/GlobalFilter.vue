@@ -101,11 +101,13 @@ export default {
   methods: {
     handleChange(filter, event) {
       let value = event;
-      console.log(`start value ${value}`);
+      console.log(`start value`);
+      console.log(value);
 
       if (typeof event === "object") {
         value = event.target.value;
-        console.log(`object value ${value}`);
+        console.log(`object value`);
+        console.log(value);
       }
 
       if (filter.component === "boolean-filter") {
@@ -115,10 +117,12 @@ export default {
           delete this.selectedCheckboxs[event.target.name];
         }
         value = this.selectedCheckboxs;
-        console.log(`checkbox value ${value}`);
+        console.log(`checkbox value`);
+        console.log(value);
       }
 
-      console.log(`current filter value: ${filter.currentValue}`)
+      console.log(`current filter value`);
+      console.log(filter.currentValue);
 
       if(filter.currentValue !== value) {
         filter.currentValue = value;
