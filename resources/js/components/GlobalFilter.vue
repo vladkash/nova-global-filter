@@ -59,6 +59,14 @@
                 :selected="option.value === filter.value || option.value === filter.currentValue"
               >{{ option.name }}</option>
             </select>
+
+            <select-multiple
+                v-if="filter.component === 'multiselect-filter'"
+                class="block w-full form-control-sm form-select"
+                :options="filter.options"
+                :value="filter.currentValue"
+                @change="handleChange(filter, $event)"
+            />
           </div>
         </div>
       </scroll-wrap>
